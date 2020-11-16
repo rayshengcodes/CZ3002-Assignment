@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class HelloWorldAction extends ActionSupport {
+    private String userName;
 
     private static final long serialVersionUID = 1L;
 
@@ -19,15 +20,36 @@ public class HelloWorldAction extends ActionSupport {
      */
     private MessageStore messageStore;
 
+    private static int helloCount = 0;
+
+    public int getHelloCount() {
+        return helloCount;
+    }
+
+    public void setHelloCount(int helloCount) {
+        HelloWorldAction.helloCount = helloCount;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     /*
      * Creates the MessageStore model object and returns success. The MessageStore
      * model object will be available to the view. (non-Javadoc)
      * 
      * @see com.opensymphony.xwork2.ActionSupport#execute()
      */
-    public String execute() {
+    public String execute() throws Exception {
         messageStore = new MessageStore();
-
+        if (userName != null) {
+            messageStore.setMessage(messageStore.getMessage() + " " + userName);
+        }
+        helloCount++;
         return SUCCESS;
     }
 
@@ -35,4 +57,7 @@ public class HelloWorldAction extends ActionSupport {
         return messageStore;
     }
 
+    public void setMessageStore(MessageStore messageStore) {
+        this.messageStore = messageStore;
+    }
 }
