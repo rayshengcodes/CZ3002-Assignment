@@ -1,4 +1,4 @@
-package model;
+package helloworld.model;
 
 /**
  * Model class that stores a message.

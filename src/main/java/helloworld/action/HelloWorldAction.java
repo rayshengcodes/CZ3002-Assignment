@@ -1,6 +1,6 @@
-package action;
+package helloworld.action;
 
-import model.MessageStore;
+import helloworld.model.MessageStore;
 
 import com.opensymphony.xwork2.ActionSupport;
 
