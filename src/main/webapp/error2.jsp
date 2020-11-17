@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Successful Login</title>
+      <title>Invalid User Name or Password Input</title>
    </head>
    
    <body>
-      Hello World, <s:property value = "personBean"/>
+    Invalid User Name or Password Input
    </body>
 </html>
