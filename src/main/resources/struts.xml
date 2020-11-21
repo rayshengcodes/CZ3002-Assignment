@@ -12,10 +12,12 @@
             <result>/index.jsp</result>
         </action>
         <action name="register" class="authentication.action.RegisterAction" method="execute">
+            <result name = "input">/Register.jsp</result>
             <result name="success">/RegisterSuccess.jsp</result>
             <result name = "error">/RegisterFailure.jsp</result>
         </action>
         <action name = "login" class = "authentication.action.LoginAction" method = "execute">
+            <result name = "input">/Login.jsp</result>
             <result name = "success">/LoginSuccess.jsp</result>
             <result name = "error">/LoginFailure.jsp</result>
         </action>

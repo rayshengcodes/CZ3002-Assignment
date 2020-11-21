@@ -4,31 +4,31 @@ import java.sql.Connection;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import authentication.controller.DatabaseController;
-import authentication.controller.LoginController;
 import authentication.model.Person;
+import authentication.services.DatabaseController;
+import authentication.services.LoginController;
 
+/**
+ * Acts as a controller to handle actions related to user login.
+ */
 public class LoginAction extends ActionSupport {
     private static final long serialVersionUID = 1L;
 
     private Person personBean;
 
+    // Input error validation
+    public void validate() {
+        if (personBean.getUsername().length() == 0) {
+            addFieldError("personBean.username", "Username cannot be empty.");
+        }
+        if (personBean.getPassword().length() == 0) {
+            addFieldError("personBean.password", "Password cannot be empty.");
+        }
+    }
+
     public String execute() {
         boolean loginSuccess = false;
         Connection conn = null;
-
-        if (personBean == null) {
-            addFieldError("error", "Personbean does not exist");
-            return ERROR;
-        }
-        if (personBean.getUsername() == null || personBean.getPassword() == null) {
-            addFieldError("error", "Invalid input: Username or password field is null");
-            return ERROR;
-        }
-        if (personBean.getUsername().length() == 0 || personBean.getPassword().length() == 0) {
-            addFieldError("error", "Invalid input: Username or password field is empty");
-            return ERROR;
-        }
         conn = DatabaseController.getDatabaseConnection();
         if (conn == null) {
             addFieldError("error", "Unable to connect to the database.");

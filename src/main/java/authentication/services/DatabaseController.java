@@ -1,8 +1,11 @@
-package authentication.controller;
+package authentication.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Handles database connection
+ */
 public class DatabaseController {
     private static final String HOST = "localhost";
     private static final String PORT = "3306";

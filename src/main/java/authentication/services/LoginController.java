@@ -1,9 +1,12 @@
-package authentication.controller;
+package authentication.services;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 
+/**
+ * Handles executing SQL query for login
+ */
 public class LoginController {
     public static boolean validateLogin(Connection conn, String username, String password) throws Exception {
         boolean loginSuccess = false;
