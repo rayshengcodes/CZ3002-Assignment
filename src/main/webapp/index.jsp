@@ -7,13 +7,8 @@
     <title>Basic Struts 2 Application - Welcome</title>
   </head>
   <body>
-    <h1>Welcome To Struts 2!</h1>
-    <!-- <form action = "login" method = "post">
-      User:<br/><input type = "text" name = "username"/><br/>
-      Password:<br/><input type = "password" name = "password"/><br/>
-      <input type = "submit" value = "Login"/>		
-   </form> -->
-    <p><a href="login.jsp">Please login</a>.</p>
-    <p><a href="register.jsp">Please register</a> for our prize drawing.</p>
+    <h1>Hello! This is our ASE Assignment 2 Project</h1>
+    <p><a href="Login.jsp">Login</a></p>
+    <p><a href="Register.jsp">Register</a></p>
   </body>
 </html>

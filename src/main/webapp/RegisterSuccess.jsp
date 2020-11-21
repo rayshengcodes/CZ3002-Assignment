@@ -5,9 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Registration Successful</title>
+    <style>
+      h1 {text-align: center;}
+      p {text-align: center;}
+   </style>
   </head>
   <body>
-    <h3>Successful Registration</h3>
+    <h1>Successful Registration</h1>
 
     <p>Your registration information: <s:property value="personBean" /> </p>
 

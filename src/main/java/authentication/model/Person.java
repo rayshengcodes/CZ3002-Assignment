@@ -1,10 +1,9 @@
-package login.model;
+package authentication.model;
 
 public class Person {
 
     private String username;
     private String password;
-    private String name;
 
     public String getUsername() {
         return username;
@@ -22,15 +21,7 @@ public class Person {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String toString() {
-        return "Name:" + getName() + "Username:" + getUsername();
+        return getUsername();
     }
 }

@@ -11,15 +11,13 @@
         <action name="index">
             <result>/index.jsp</result>
         </action>
-        <action name="register" class="register.action.Register" method="execute">
-            <result name="success">/thankyou.jsp</result>
-            <result name = "error">/error.jsp</result>
-            <result name = "error2">/error2.jsp</result>
+        <action name="register" class="authentication.action.RegisterAction" method="execute">
+            <result name="success">/RegisterSuccess.jsp</result>
+            <result name = "error">/RegisterFailure.jsp</result>
         </action>
-        <action name = "login" class = "login.action.LoginAction" method = "execute">
-            <result name = "success">/success.jsp</result>
-            <result name = "error">/login.jsp</result>
-            <result name = "error2">/error2.jsp</result>
+        <action name = "login" class = "authentication.action.LoginAction" method = "execute">
+            <result name = "success">/LoginSuccess.jsp</result>
+            <result name = "error">/LoginFailure.jsp</result>
         </action>
     </package>
 

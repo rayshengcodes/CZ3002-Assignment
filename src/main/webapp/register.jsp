@@ -7,13 +7,13 @@
     <title>Register</title>
   </head>
   <body>
-    <h3>Register by completing this form.</h3>
+    <h3>Register</h3>
 
     <s:form action="register">
       <s:textfield name="personBean.username" label="username" />
-      <s:textfield name="personBean.name" label="name" />
-      <s:textfield name="personBean.password"  label ="password"/>  
+      <s:password name="personBean.password"  label ="password"/>  
       <s:submit/>
     </s:form>	
+    <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
   </body>
 </html>
