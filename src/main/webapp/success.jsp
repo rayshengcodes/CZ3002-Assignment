@@ -8,6 +8,7 @@
    </head>
    
    <body>
-      Hello World, <s:property value = "personBean"/>
+      <h1>Successful Login</h1>
+      <p>Welcome, <s:property value = "personBean"/></p>
    </body>
 </html>
