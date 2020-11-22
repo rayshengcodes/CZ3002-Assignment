@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Handles database connection
+ * Handles database services
  */
 public class DatabaseService {
     private static final String HOST = "localhost";
@@ -15,6 +15,8 @@ public class DatabaseService {
 
     /**
      * Establishes a connection with local MySQL database
+     * 
+     * @return connection with database
      */
     public static Connection getDatabaseConnection() {
         String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + SCHEMA

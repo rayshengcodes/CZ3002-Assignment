@@ -5,11 +5,16 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 
 /**
- * Handles executing SQL query for login
+ * Handles Login related services
  */
 public class LoginService {
     /**
-     * @param *
+     * Validates the login by executing SQL Query
+     * 
+     * @param conn     The connection with MySQL database
+     * @param username The person's username
+     * @param password The person's password
+     * @return boolean variable loginSuccess indicating if the login is successful
      */
     public static boolean validateLogin(Connection conn, String username, String password) throws Exception {
         boolean loginSuccess = false;

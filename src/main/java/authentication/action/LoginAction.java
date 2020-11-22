@@ -16,7 +16,9 @@ public class LoginAction extends ActionSupport {
 
     private Person personBean;
 
-    // Input error validation
+    /**
+     * Handles validation of user input
+     */
     public void validate() {
         if (personBean.getUsername().length() == 0) {
             addFieldError("personBean.username", "Username cannot be empty.");
@@ -29,32 +31,45 @@ public class LoginAction extends ActionSupport {
     public String execute() {
         boolean loginSuccess = false;
         Connection conn = null;
+        // Establish connection with MySQL database
         conn = DatabaseService.getDatabaseConnection();
-        if (conn == null) {
+        if (conn == null) { // Handles event of failing to connect to database
             addFieldError("error", "Unable to connect to the database.");
             return ERROR;
         }
         try {
+            // Authenticate user via SQL query
             loginSuccess = LoginService.validateLogin(conn, personBean.getUsername(), personBean.getPassword());
             if (!loginSuccess) {
                 addFieldError("error", "Wrong username or password provided");
             }
-        } catch (Exception e) {
+        } catch (Exception e) { // Handles exception thrown by validateLogin
             addFieldError("error", e.getMessage());
-        } finally {
+        } finally { // Closes connection with the database
             try {
                 conn.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        // returns SUCCESS or ERROR event depending on whether login is successful
         return loginSuccess ? SUCCESS : ERROR;
     }
 
+    /**
+     * Gets personBean variable
+     * 
+     * @return Person object
+     */
     public Person getPersonBean() {
         return personBean;
     }
 
+    /**
+     * Sets personBean variable
+     * 
+     * @param person Person object
+     */
     public void setPersonBean(Person person) {
         personBean = person;
     }

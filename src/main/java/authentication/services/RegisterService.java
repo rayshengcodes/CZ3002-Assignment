@@ -4,9 +4,16 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 
 /**
- * Handles executing SQL query for registration
+ * Handles Registration related services
  */
 public class RegisterService {
+    /**
+     * @param conn     The connection with MySQL database
+     * @param username The person's username
+     * @param password The person's password
+     * @return boolean variable registerSuccess indicating if the registration is
+     *         successful
+     */
     public static boolean userRegister(Connection conn, String username, String password) throws Exception {
         boolean registerSuccess = false;
 

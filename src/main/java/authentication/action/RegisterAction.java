@@ -17,7 +17,9 @@ public class RegisterAction extends ActionSupport {
 
     private Person personBean;
 
-    // Input error validation
+    /**
+     * Handles validation of user input
+     */
     public void validate() {
         if (personBean.getUsername().length() == 0) {
             addFieldError("personBean.username", "Username cannot be empty.");
@@ -30,29 +32,43 @@ public class RegisterAction extends ActionSupport {
     public String execute() throws Exception {
         boolean registerSuccess = false;
         Connection conn = null;
+        // Establish connection with MySQL database
         conn = DatabaseService.getDatabaseConnection();
-        if (conn == null) {
+        if (conn == null) { // Handles event of failing to connect to database
             addFieldError("error", "Unable to connect to the database.");
             return ERROR;
         }
         try {
+            // Registers user via SQL query
             registerSuccess = RegisterService.userRegister(conn, personBean.getUsername(), personBean.getPassword());
-        } catch (Exception e) {
+        } catch (Exception e) { // Handles exception thrown by userRegister
             addFieldError("error", e.getMessage());
-        } finally {
+        } finally { // Closes connection with the database
             try {
                 conn.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        // returns SUCCESS or ERROR event depending on whether registration is
+        // successful
         return registerSuccess ? SUCCESS : ERROR;
     }
 
+    /**
+     * Gets personBean variable
+     * 
+     * @return Person object
+     */
     public Person getPersonBean() {
         return personBean;
     }
 
+    /**
+     * Sets personBean variable
+     * 
+     * @param person Person object
+     */
     public void setPersonBean(Person person) {
         personBean = person;
     }
