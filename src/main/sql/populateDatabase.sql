@@ -6,7 +6,7 @@ CREATE TABLE `ase-assignment`.`Login` (
   `username` VARCHAR(15) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`username`));
-  /
+
 /* Populating the value from database*/
 INSERT INTO `ase-assignment`.`login` (`username`, `password`) VALUES ('adam',  'steve');
 INSERT INTO `ase-assignment`.`login` (`username`, `password`) VALUES ('root', 'admin');
