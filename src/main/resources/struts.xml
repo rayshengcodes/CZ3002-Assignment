@@ -19,7 +19,7 @@
         <action name = "login" class = "authentication.action.LoginAction" method = "execute">
             <result name = "input">/Login.jsp</result>
             <result name = "success">/LoginSuccess.jsp</result>
-            <result name = "error">/LoginFailure.jsp</result>
+            <result name = "error">/Login.jsp</result>
         </action>
     </package>
 

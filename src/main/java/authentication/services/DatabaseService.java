@@ -6,13 +6,16 @@ import java.sql.DriverManager;
 /**
  * Handles database connection
  */
-public class DatabaseController {
+public class DatabaseService {
     private static final String HOST = "localhost";
     private static final String PORT = "3306";
     private static final String SCHEMA = "ase-assignment";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
 
+    /**
+     * Establishes a connection with local MySQL database
+     */
     public static Connection getDatabaseConnection() {
         String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + SCHEMA
                 + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

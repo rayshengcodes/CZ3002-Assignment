@@ -6,7 +6,7 @@ import java.sql.Connection;
 /**
  * Handles executing SQL query for registration
  */
-public class RegisterController {
+public class RegisterService {
     public static boolean userRegister(Connection conn, String username, String password) throws Exception {
         boolean registerSuccess = false;
 

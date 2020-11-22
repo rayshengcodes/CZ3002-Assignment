@@ -1,5 +1,8 @@
 package authentication.model;
 
+/**
+ * Represents a person class
+ */
 public class Person {
 
     private String username;

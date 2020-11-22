@@ -5,8 +5,8 @@ import java.sql.Connection;
 import com.opensymphony.xwork2.ActionSupport;
 
 import authentication.model.Person;
-import authentication.services.DatabaseController;
-import authentication.services.RegisterController;
+import authentication.services.DatabaseService;
+import authentication.services.RegisterService;
 
 /**
  * Acts as a controller to handle actions related to registering a user.
@@ -30,13 +30,13 @@ public class RegisterAction extends ActionSupport {
     public String execute() throws Exception {
         boolean registerSuccess = false;
         Connection conn = null;
-        conn = DatabaseController.getDatabaseConnection();
+        conn = DatabaseService.getDatabaseConnection();
         if (conn == null) {
             addFieldError("error", "Unable to connect to the database.");
             return ERROR;
         }
         try {
-            registerSuccess = RegisterController.userRegister(conn, personBean.getUsername(), personBean.getPassword());
+            registerSuccess = RegisterService.userRegister(conn, personBean.getUsername(), personBean.getPassword());
         } catch (Exception e) {
             addFieldError("error", e.getMessage());
         } finally {

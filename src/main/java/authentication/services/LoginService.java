@@ -7,7 +7,10 @@ import java.sql.Connection;
 /**
  * Handles executing SQL query for login
  */
-public class LoginController {
+public class LoginService {
+    /**
+     * @param *
+     */
     public static boolean validateLogin(Connection conn, String username, String password) throws Exception {
         boolean loginSuccess = false;
 

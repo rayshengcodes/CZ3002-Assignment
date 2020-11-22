@@ -5,8 +5,8 @@ import java.sql.Connection;
 import com.opensymphony.xwork2.ActionSupport;
 
 import authentication.model.Person;
-import authentication.services.DatabaseController;
-import authentication.services.LoginController;
+import authentication.services.DatabaseService;
+import authentication.services.LoginService;
 
 /**
  * Acts as a controller to handle actions related to user login.
@@ -29,13 +29,16 @@ public class LoginAction extends ActionSupport {
     public String execute() {
         boolean loginSuccess = false;
         Connection conn = null;
-        conn = DatabaseController.getDatabaseConnection();
+        conn = DatabaseService.getDatabaseConnection();
         if (conn == null) {
             addFieldError("error", "Unable to connect to the database.");
             return ERROR;
         }
         try {
-            loginSuccess = LoginController.validateLogin(conn, personBean.getUsername(), personBean.getPassword());
+            loginSuccess = LoginService.validateLogin(conn, personBean.getUsername(), personBean.getPassword());
+            if (!loginSuccess) {
+                addFieldError("error", "Wrong username or password provided");
+            }
         } catch (Exception e) {
             addFieldError("error", e.getMessage());
         } finally {

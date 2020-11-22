@@ -5,10 +5,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Login</title>
+    <style>
+      .errorMessage {
+         list-style: none;
+      }
+   </style>
   </head>
   <body>
     <h3>Login</h3>
-
+    <s:fielderror fieldName="error" cssClass="errorMessage" />
     <s:form action="login">
       <s:textfield name="personBean.username" label="username" />
       <s:password name="personBean.password" label="password" />
