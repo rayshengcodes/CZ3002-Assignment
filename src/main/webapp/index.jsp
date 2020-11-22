@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Hello! This is our ASE Assignment 2 Project</h1>
-    <p><a href="Login.jsp">Login</a></p>
-    <p><a href="Register.jsp">Register</a></p>
+    <p><a href="login.jsp">Login</a></p>
+    <p><a href="register.jsp">Register</a></p>
   </body>
 </html>
